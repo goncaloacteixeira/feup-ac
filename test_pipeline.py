@@ -1,6 +1,3 @@
-import pandas as pd
-
-
 def test(model, test_dataframe, features, target_variable):
     X_test = test_dataframe[features]
     y_pred = model.predict(X_test)
