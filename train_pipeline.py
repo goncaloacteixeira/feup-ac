@@ -1,17 +1,13 @@
-import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
 
 
-def train():
-    loans_df = pd.read_csv("data/loan_train.csv", sep=";", parse_dates=["date"])
+def train(dataframe, features, target_variable):
+    X = dataframe[features]
+    y = dataframe[target_variable]
 
-    feature_cols_loans = ["amount", "duration", "payments"]
-    X = loans_df[feature_cols_loans]
-    y = loans_df["status"]
-
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=1)
 
     print("Training data...")
 
