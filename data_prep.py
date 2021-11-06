@@ -1,5 +1,7 @@
 import pandas as pd
 import utils
+from numpy import array
+from sklearn.preprocessing import LabelEncoder
 
 
 def data_prep(data_type):
@@ -32,5 +34,16 @@ def data_prep(data_type):
 
     # merge loans with account data
     df = pd.merge(loans_df, accounts_df, on="account_id")
+
+    return df
+
+
+def data_preprocessing(df):
+    frequency = df["frequency"]
+    values = array(frequency)
+    # integer encode
+    label_encoder = LabelEncoder()
+    integer_encoded = label_encoder.fit_transform(values)
+    df["frequency"] = integer_encoded
 
     return df

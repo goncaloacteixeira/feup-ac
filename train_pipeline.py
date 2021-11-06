@@ -18,7 +18,7 @@ def train(dataframe, features, target_variable):
     clf = clf.fit(X_train, y_train)
 
     # Predict the response for test dataset
-    y_pred = clf.predict_proba(X_test)[:, 1]
+    y_pred = clf.predict_proba(X_test)[:, -1]
 
     # Model Area Under the Curve, the higher the better
     auc = metrics.roc_auc_score(y_test, y_pred)
