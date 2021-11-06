@@ -3,13 +3,10 @@ import train_pipeline as train_pl
 import data_prep as dp
 
 if __name__ == "__main__":
-    feature_cols_loans = ["amount",
-                          "duration",
-                          "payments",
-                          "loan_year",
-                          "loan_month",
-                          "loan_day",
-                          ]
+    # TODO - feature encoding (passar strings para valores - ou "label encoding" ou "One-of-K")
+
+    feature_cols_loans = ['account_id', 'amount', 'duration', 'payments', 'loan_year', 'loan_month', 'loan_day',
+                          'account_district_id', 'account_year', 'account_month', 'account_day']
     target = "status"
 
     loans_df_train = dp.data_prep("train")
