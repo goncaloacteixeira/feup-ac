@@ -17,20 +17,20 @@ def parse_client_dates(df):
         day = int(str(birth_number)[4:6])
         # check if the client is female or male
         if month > 12:
-            genders.append("Female")
+            genders.append(0)  # female
             month = month - 50
         else:
-            genders.append("Male")
+            genders.append(1)  # male
 
         birth_day.append(day)
         birth_month.append(month)
         birth_year.append(year)
 
     # Add the new columns to the dataframe
-    df["birth_day"] = birth_day
-    df["birth_month"] = birth_month
-    df["birth_year"] = birth_year
-    df["gender"] = genders
+    df["client_birth_day"] = birth_day
+    df["client_birth_month"] = birth_month
+    df["client_birth_year"] = birth_year
+    df["client_gender"] = genders
 
     # Drop the unnecessary column
     df = df.drop(columns="birth_number", axis=1)

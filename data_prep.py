@@ -35,14 +35,31 @@ def data_prep(data_type):
     # merge loans with account data
     df = pd.merge(loans_df, accounts_df, on="account_id")
 
+    # to join the dispositions table we could count, for each account, the number of disponents
+    dispositions_df = pd.read_csv("data/disp.csv", sep=";")
+    disponents = dispositions_df.groupby('account_id')['type'].apply(lambda x: (x == 'DISPONENT').sum()).reset_index(
+        name='account_disponents')
+    # add the owner id
+    owners = dispositions_df[dispositions_df.type == "OWNER"][["account_id", "client_id"]].rename(
+        columns={"client_id": "owner_id"})
+    df = pd.merge(df, owners, on="account_id")
+    df = pd.merge(df, disponents, on="account_id")
+
+    # join clients data
+    clients_df = pd.read_csv("data/client.csv", sep=";")
+    clients_df = utils.parse_client_dates(clients_df).rename(columns={"client_id": "owner_id"})
+
+    df = pd.merge(df, clients_df, on="owner_id")
+
     return df
 
 
 def data_preprocessing(df):
-    frequency = df["frequency"]
-    values = array(frequency)
     # integer encode
     label_encoder = LabelEncoder()
+
+    frequency = df["frequency"]
+    values = array(frequency)
     integer_encoded = label_encoder.fit_transform(values)
     df["frequency"] = integer_encoded
 

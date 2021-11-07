@@ -12,7 +12,7 @@ def train(dataframe, features, target_variable):
     print("Training data...")
 
     # Create Decision Tree classifier object
-    clf = DecisionTreeClassifier(min_samples_leaf=15)
+    clf = DecisionTreeClassifier(min_samples_leaf=10)
 
     # Train Decision Tree Classifier
     clf = clf.fit(X_train, y_train)
