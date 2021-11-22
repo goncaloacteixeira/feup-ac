@@ -12,7 +12,7 @@
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="read_csv" compatibility="9.10.001" expanded="true" height="68" name="Read Test Data" width="90" x="179" y="34">
+      <operator activated="true" class="read_csv" compatibility="9.10.001" expanded="true" height="68" name="Read Test Data" width="90" x="45" y="34">
         <parameter key="csv_file" value="C:\Users\gonca\OneDrive\Desktop\feup-ac\test.csv"/>
         <parameter key="column_separators" value=","/>
         <parameter key="trim_lines" value="false"/>
@@ -74,34 +74,32 @@
           <parameter key="36" value="card_type_count_gold.true.integer.attribute"/>
           <parameter key="37" value="card_type_count_classic.true.integer.attribute"/>
           <parameter key="38" value="card_type_count_junior.true.integer.attribute"/>
-          <parameter key="39" value="account_region.true.polynominal.attribute"/>
-          <parameter key="40" value="account_no\. of inhabitants.true.integer.attribute"/>
-          <parameter key="41" value="account_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
-          <parameter key="42" value="account_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
-          <parameter key="43" value="account_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
-          <parameter key="44" value="account_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
-          <parameter key="45" value="account_no\. of cities.true.integer.attribute"/>
-          <parameter key="46" value="account_ratio of urban inhabitants.true.real.attribute"/>
-          <parameter key="47" value="account_average salary.true.integer.attribute"/>
-          <parameter key="48" value="account_unemploymant rate 95.true.real.attribute"/>
-          <parameter key="49" value="account_unemploymant rate 96.true.real.attribute"/>
-          <parameter key="50" value="account_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
-          <parameter key="51" value="account_no\. of commited crimes 95.true.integer.attribute"/>
-          <parameter key="52" value="account_no\. of commited crimes 96.true.integer.attribute"/>
-          <parameter key="53" value="owner_region.true.polynominal.attribute"/>
-          <parameter key="54" value="owner_no\. of inhabitants.true.integer.attribute"/>
-          <parameter key="55" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
-          <parameter key="56" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
-          <parameter key="57" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
-          <parameter key="58" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
-          <parameter key="59" value="owner_no\. of cities.true.integer.attribute"/>
-          <parameter key="60" value="owner_ratio of urban inhabitants.true.real.attribute"/>
-          <parameter key="61" value="owner_average salary.true.integer.attribute"/>
-          <parameter key="62" value="owner_unemploymant rate 95.true.real.attribute"/>
-          <parameter key="63" value="owner_unemploymant rate 96.true.real.attribute"/>
-          <parameter key="64" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
-          <parameter key="65" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
-          <parameter key="66" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
+          <parameter key="39" value="account_no\. of inhabitants.true.integer.attribute"/>
+          <parameter key="40" value="account_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
+          <parameter key="41" value="account_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
+          <parameter key="42" value="account_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
+          <parameter key="43" value="account_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
+          <parameter key="44" value="account_no\. of cities.true.integer.attribute"/>
+          <parameter key="45" value="account_ratio of urban inhabitants.true.real.attribute"/>
+          <parameter key="46" value="account_average salary.true.integer.attribute"/>
+          <parameter key="47" value="account_unemploymant rate 95.true.real.attribute"/>
+          <parameter key="48" value="account_unemploymant rate 96.true.real.attribute"/>
+          <parameter key="49" value="account_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
+          <parameter key="50" value="account_no\. of commited crimes 95.true.integer.attribute"/>
+          <parameter key="51" value="account_no\. of commited crimes 96.true.integer.attribute"/>
+          <parameter key="52" value="owner_no\. of inhabitants.true.integer.attribute"/>
+          <parameter key="53" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
+          <parameter key="54" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
+          <parameter key="55" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
+          <parameter key="56" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
+          <parameter key="57" value="owner_no\. of cities.true.integer.attribute"/>
+          <parameter key="58" value="owner_ratio of urban inhabitants.true.real.attribute"/>
+          <parameter key="59" value="owner_average salary.true.integer.attribute"/>
+          <parameter key="60" value="owner_unemploymant rate 95.true.real.attribute"/>
+          <parameter key="61" value="owner_unemploymant rate 96.true.real.attribute"/>
+          <parameter key="62" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
+          <parameter key="63" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
+          <parameter key="64" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
         </list>
         <parameter key="read_not_matching_values_as_missings" value="false"/>
       </operator>
@@ -167,43 +165,59 @@
           <parameter key="36" value="card_type_count_gold.true.integer.attribute"/>
           <parameter key="37" value="card_type_count_classic.true.integer.attribute"/>
           <parameter key="38" value="card_type_count_junior.true.integer.attribute"/>
-          <parameter key="39" value="account_region.true.polynominal.attribute"/>
-          <parameter key="40" value="account_no\. of inhabitants.true.integer.attribute"/>
-          <parameter key="41" value="account_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
-          <parameter key="42" value="account_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
-          <parameter key="43" value="account_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
-          <parameter key="44" value="account_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
-          <parameter key="45" value="account_no\. of cities.true.integer.attribute"/>
-          <parameter key="46" value="account_ratio of urban inhabitants.true.real.attribute"/>
-          <parameter key="47" value="account_average salary.true.integer.attribute"/>
-          <parameter key="48" value="account_unemploymant rate 95.true.real.attribute"/>
-          <parameter key="49" value="account_unemploymant rate 96.true.real.attribute"/>
-          <parameter key="50" value="account_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
-          <parameter key="51" value="account_no\. of commited crimes 95.true.integer.attribute"/>
-          <parameter key="52" value="account_no\. of commited crimes 96.true.integer.attribute"/>
-          <parameter key="53" value="owner_region.true.polynominal.attribute"/>
-          <parameter key="54" value="owner_no\. of inhabitants.true.integer.attribute"/>
-          <parameter key="55" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
-          <parameter key="56" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
-          <parameter key="57" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
-          <parameter key="58" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
-          <parameter key="59" value="owner_no\. of cities.true.integer.attribute"/>
-          <parameter key="60" value="owner_ratio of urban inhabitants.true.real.attribute"/>
-          <parameter key="61" value="owner_average salary.true.integer.attribute"/>
-          <parameter key="62" value="owner_unemploymant rate 95.true.real.attribute"/>
-          <parameter key="63" value="owner_unemploymant rate 96.true.real.attribute"/>
-          <parameter key="64" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
-          <parameter key="65" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
-          <parameter key="66" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
+          <parameter key="39" value="account_no\. of inhabitants.true.integer.attribute"/>
+          <parameter key="40" value="account_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
+          <parameter key="41" value="account_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
+          <parameter key="42" value="account_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
+          <parameter key="43" value="account_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
+          <parameter key="44" value="account_no\. of cities.true.integer.attribute"/>
+          <parameter key="45" value="account_ratio of urban inhabitants.true.real.attribute"/>
+          <parameter key="46" value="account_average salary.true.integer.attribute"/>
+          <parameter key="47" value="account_unemploymant rate 95.true.real.attribute"/>
+          <parameter key="48" value="account_unemploymant rate 96.true.real.attribute"/>
+          <parameter key="49" value="account_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
+          <parameter key="50" value="account_no\. of commited crimes 95.true.integer.attribute"/>
+          <parameter key="51" value="account_no\. of commited crimes 96.true.integer.attribute"/>
+          <parameter key="52" value="owner_no\. of inhabitants.true.integer.attribute"/>
+          <parameter key="53" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
+          <parameter key="54" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
+          <parameter key="55" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
+          <parameter key="56" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
+          <parameter key="57" value="owner_no\. of cities.true.integer.attribute"/>
+          <parameter key="58" value="owner_ratio of urban inhabitants.true.real.attribute"/>
+          <parameter key="59" value="owner_average salary.true.integer.attribute"/>
+          <parameter key="60" value="owner_unemploymant rate 95.true.real.attribute"/>
+          <parameter key="61" value="owner_unemploymant rate 96.true.real.attribute"/>
+          <parameter key="62" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
+          <parameter key="63" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
+          <parameter key="64" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
         </list>
         <parameter key="read_not_matching_values_as_missings" value="false"/>
       </operator>
-      <operator activated="true" class="set_role" compatibility="9.10.001" expanded="true" height="82" name="Set Role" width="90" x="179" y="238">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute encoding" width="90" x="45" y="289">
+        <parameter key="process_location" value="encoding"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="set_role" compatibility="9.10.001" expanded="true" height="82" name="Set Role" width="90" x="45" y="442">
         <parameter key="attribute_name" value="status"/>
         <parameter key="target_role" value="label"/>
         <list key="set_additional_roles"/>
       </operator>
-      <operator activated="true" class="split_validation" compatibility="9.10.001" expanded="true" height="124" name="Validation" width="90" x="380" y="238">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute encoding (2)" width="90" x="246" y="34">
+        <parameter key="process_location" value="encoding"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="split_validation" compatibility="9.10.001" expanded="true" height="124" name="Validation" width="90" x="246" y="289">
         <parameter key="create_complete_model" value="false"/>
         <parameter key="split" value="relative"/>
         <parameter key="split_ratio" value="0.8"/>
@@ -213,46 +227,24 @@
         <parameter key="use_local_random_seed" value="false"/>
         <parameter key="local_random_seed" value="1992"/>
         <process expanded="true">
-          <operator activated="true" class="h2o:deep_learning" compatibility="9.10.001" expanded="true" height="103" name="Deep Learning" width="90" x="179" y="34">
-            <parameter key="activation" value="Rectifier"/>
-            <enumeration key="hidden_layer_sizes">
-              <parameter key="hidden_layer_sizes" value="50"/>
-              <parameter key="hidden_layer_sizes" value="50"/>
-            </enumeration>
-            <enumeration key="hidden_dropout_ratios"/>
-            <parameter key="reproducible_(uses_1_thread)" value="false"/>
-            <parameter key="use_local_random_seed" value="false"/>
-            <parameter key="local_random_seed" value="1992"/>
-            <parameter key="epochs" value="20.0"/>
-            <parameter key="compute_variable_importances" value="false"/>
-            <parameter key="train_samples_per_iteration" value="-2"/>
-            <parameter key="adaptive_rate" value="true"/>
-            <parameter key="epsilon" value="1.0E-8"/>
-            <parameter key="rho" value="0.99"/>
-            <parameter key="learning_rate" value="0.005"/>
-            <parameter key="learning_rate_annealing" value="1.0E-6"/>
-            <parameter key="learning_rate_decay" value="1.0"/>
-            <parameter key="momentum_start" value="0.0"/>
-            <parameter key="momentum_ramp" value="1000000.0"/>
-            <parameter key="momentum_stable" value="0.0"/>
-            <parameter key="nesterov_accelerated_gradient" value="true"/>
-            <parameter key="standardize" value="true"/>
-            <parameter key="L1" value="1.0E-5"/>
-            <parameter key="L2" value="0.0"/>
-            <parameter key="max_w2" value="10.0"/>
-            <parameter key="loss_function" value="Automatic"/>
-            <parameter key="distribution_function" value="AUTO"/>
-            <parameter key="early_stopping" value="false"/>
-            <parameter key="stopping_rounds" value="1"/>
-            <parameter key="stopping_metric" value="AUTO"/>
-            <parameter key="stopping_tolerance" value="0.001"/>
-            <parameter key="missing_values_handling" value="MeanImputation"/>
-            <parameter key="max_runtime_seconds" value="0"/>
-            <list key="expert_parameters"/>
-            <list key="expert_parameters_"/>
+          <operator activated="true" class="support_vector_machine_libsvm" compatibility="9.10.001" expanded="true" height="82" name="SVM" width="90" x="179" y="34">
+            <parameter key="svm_type" value="C-SVC"/>
+            <parameter key="kernel_type" value="rbf"/>
+            <parameter key="degree" value="3"/>
+            <parameter key="gamma" value="0.0"/>
+            <parameter key="coef0" value="0.0"/>
+            <parameter key="C" value="0.0"/>
+            <parameter key="nu" value="0.5"/>
+            <parameter key="cache_size" value="80"/>
+            <parameter key="epsilon" value="0.001"/>
+            <parameter key="p" value="0.1"/>
+            <list key="class_weights"/>
+            <parameter key="shrinking" value="true"/>
+            <parameter key="calculate_confidences" value="false"/>
+            <parameter key="confidence_for_multiclass" value="true"/>
           </operator>
-          <connect from_port="training" to_op="Deep Learning" to_port="training set"/>
-          <connect from_op="Deep Learning" from_port="model" to_port="model"/>
+          <connect from_port="training" to_op="SVM" to_port="training set"/>
+          <connect from_op="SVM" from_port="model" to_port="model"/>
           <portSpacing port="source_training" spacing="0"/>
           <portSpacing port="sink_model" spacing="0"/>
           <portSpacing port="sink_through 1" spacing="0"/>
@@ -266,11 +258,11 @@
             <parameter key="manually_set_positive_class" value="false"/>
             <parameter key="main_criterion" value="AUC"/>
             <parameter key="accuracy" value="true"/>
-            <parameter key="classification_error" value="false"/>
+            <parameter key="classification_error" value="true"/>
             <parameter key="kappa" value="false"/>
-            <parameter key="AUC (optimistic)" value="false"/>
+            <parameter key="AUC (optimistic)" value="true"/>
             <parameter key="AUC" value="true"/>
-            <parameter key="AUC (pessimistic)" value="false"/>
+            <parameter key="AUC (pessimistic)" value="true"/>
             <parameter key="precision" value="false"/>
             <parameter key="recall" value="false"/>
             <parameter key="lift" value="false"/>
@@ -336,11 +328,12 @@
         <parameter key="append_to_file" value="false"/>
         <parameter key="encoding" value="SYSTEM"/>
       </operator>
-      <connect from_op="Read Test Data" from_port="output" to_op="Apply Model (2)" to_port="unlabelled data"/>
-      <connect from_op="Read Train Data" from_port="output" to_op="Set Role" to_port="example set input"/>
+      <connect from_op="Read Test Data" from_port="output" to_op="Execute encoding (2)" to_port="input 1"/>
+      <connect from_op="Read Train Data" from_port="output" to_op="Execute encoding" to_port="input 1"/>
+      <connect from_op="Execute encoding" from_port="result 1" to_op="Set Role" to_port="example set input"/>
       <connect from_op="Set Role" from_port="example set output" to_op="Validation" to_port="training"/>
+      <connect from_op="Execute encoding (2)" from_port="result 1" to_op="Apply Model (2)" to_port="unlabelled data"/>
       <connect from_op="Validation" from_port="model" to_op="Apply Model (2)" to_port="model"/>
-      <connect from_op="Validation" from_port="training" to_port="result 4"/>
       <connect from_op="Validation" from_port="averagable 1" to_port="result 3"/>
       <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Select Attributes" to_port="example set input"/>
       <connect from_op="Apply Model (2)" from_port="model" to_port="result 1"/>
@@ -352,7 +345,6 @@
       <portSpacing port="sink_result 2" spacing="0"/>
       <portSpacing port="sink_result 3" spacing="0"/>
       <portSpacing port="sink_result 4" spacing="0"/>
-      <portSpacing port="sink_result 5" spacing="0"/>
     </process>
   </operator>
 </process>
