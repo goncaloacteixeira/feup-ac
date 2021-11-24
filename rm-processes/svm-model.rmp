@@ -208,6 +208,113 @@
         <parameter key="target_role" value="label"/>
         <list key="set_additional_roles"/>
       </operator>
+      <operator activated="true" class="concurrency:optimize_parameters_grid" compatibility="9.10.001" expanded="true" height="124" name="Optimize Parameters (Grid)" width="90" x="246" y="340">
+        <list key="parameters">
+          <parameter key="SVM.L_pos" value="[0.0;5;30;linear]"/>
+          <parameter key="SVM.L_neg" value="[0.0;5;30;linear]"/>
+        </list>
+        <parameter key="error_handling" value="fail on error"/>
+        <parameter key="log_performance" value="true"/>
+        <parameter key="log_all_criteria" value="false"/>
+        <parameter key="synchronize" value="false"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="split_validation" compatibility="9.10.001" expanded="true" height="124" name="Validation" width="90" x="380" y="34">
+            <parameter key="create_complete_model" value="false"/>
+            <parameter key="split" value="relative"/>
+            <parameter key="split_ratio" value="0.8"/>
+            <parameter key="training_set_size" value="100"/>
+            <parameter key="test_set_size" value="-1"/>
+            <parameter key="sampling_type" value="linear sampling"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+            <process expanded="true">
+              <operator activated="true" class="support_vector_machine" compatibility="9.10.001" expanded="true" height="124" name="SVM" width="90" x="112" y="34">
+                <parameter key="kernel_type" value="polynomial"/>
+                <parameter key="kernel_gamma" value="1.0"/>
+                <parameter key="kernel_sigma1" value="1.0"/>
+                <parameter key="kernel_sigma2" value="0.0"/>
+                <parameter key="kernel_sigma3" value="2.0"/>
+                <parameter key="kernel_shift" value="1.0"/>
+                <parameter key="kernel_degree" value="2.0"/>
+                <parameter key="kernel_a" value="1.0"/>
+                <parameter key="kernel_b" value="0.0"/>
+                <parameter key="kernel_cache" value="200"/>
+                <parameter key="C" value="0.0"/>
+                <parameter key="convergence_epsilon" value="0.08"/>
+                <parameter key="max_iterations" value="300000"/>
+                <parameter key="scale" value="true"/>
+                <parameter key="calculate_weights" value="true"/>
+                <parameter key="return_optimization_performance" value="true"/>
+                <parameter key="L_pos" value="0.0"/>
+                <parameter key="L_neg" value="0.0"/>
+                <parameter key="epsilon" value="0.0"/>
+                <parameter key="epsilon_plus" value="0.0"/>
+                <parameter key="epsilon_minus" value="0.0"/>
+                <parameter key="balance_cost" value="false"/>
+                <parameter key="quadratic_loss_pos" value="false"/>
+                <parameter key="quadratic_loss_neg" value="false"/>
+                <parameter key="estimate_performance" value="false"/>
+              </operator>
+              <connect from_port="training" to_op="SVM" to_port="training set"/>
+              <connect from_op="SVM" from_port="model" to_port="model"/>
+              <portSpacing port="source_training" spacing="0"/>
+              <portSpacing port="sink_model" spacing="0"/>
+              <portSpacing port="sink_through 1" spacing="0"/>
+            </process>
+            <process expanded="true">
+              <operator activated="true" class="apply_model" compatibility="9.10.001" expanded="true" height="82" name="Apply Model" width="90" x="112" y="34">
+                <list key="application_parameters"/>
+                <parameter key="create_view" value="false"/>
+              </operator>
+              <operator activated="true" class="performance_binominal_classification" compatibility="9.10.001" expanded="true" height="82" name="Performance" width="90" x="246" y="34">
+                <parameter key="manually_set_positive_class" value="false"/>
+                <parameter key="main_criterion" value="AUC"/>
+                <parameter key="accuracy" value="true"/>
+                <parameter key="classification_error" value="true"/>
+                <parameter key="kappa" value="false"/>
+                <parameter key="AUC (optimistic)" value="true"/>
+                <parameter key="AUC" value="true"/>
+                <parameter key="AUC (pessimistic)" value="true"/>
+                <parameter key="precision" value="false"/>
+                <parameter key="recall" value="false"/>
+                <parameter key="lift" value="false"/>
+                <parameter key="fallout" value="false"/>
+                <parameter key="f_measure" value="false"/>
+                <parameter key="false_positive" value="false"/>
+                <parameter key="false_negative" value="false"/>
+                <parameter key="true_positive" value="false"/>
+                <parameter key="true_negative" value="false"/>
+                <parameter key="sensitivity" value="false"/>
+                <parameter key="specificity" value="false"/>
+                <parameter key="youden" value="false"/>
+                <parameter key="positive_predictive_value" value="false"/>
+                <parameter key="negative_predictive_value" value="false"/>
+                <parameter key="psep" value="false"/>
+                <parameter key="skip_undefined_labels" value="true"/>
+                <parameter key="use_example_weights" value="true"/>
+              </operator>
+              <connect from_port="model" to_op="Apply Model" to_port="model"/>
+              <connect from_port="test set" to_op="Apply Model" to_port="unlabelled data"/>
+              <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
+              <connect from_op="Performance" from_port="performance" to_port="averagable 1"/>
+              <portSpacing port="source_model" spacing="0"/>
+              <portSpacing port="source_test set" spacing="0"/>
+              <portSpacing port="source_through 1" spacing="0"/>
+              <portSpacing port="sink_averagable 1" spacing="0"/>
+              <portSpacing port="sink_averagable 2" spacing="0"/>
+            </process>
+          </operator>
+          <connect from_port="input 1" to_op="Validation" to_port="training"/>
+          <connect from_op="Validation" from_port="model" to_port="model"/>
+          <connect from_op="Validation" from_port="averagable 1" to_port="performance"/>
+          <portSpacing port="source_input 1" spacing="0"/>
+          <portSpacing port="source_input 2" spacing="0"/>
+          <portSpacing port="sink_performance" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_output 1" spacing="0"/>
+        </process>
+      </operator>
       <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute encoding (2)" width="90" x="246" y="34">
         <parameter key="process_location" value="encoding"/>
         <parameter key="use_input" value="true"/>
@@ -216,81 +323,6 @@
         <parameter key="cache_process" value="true"/>
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
-      </operator>
-      <operator activated="true" class="split_validation" compatibility="9.10.001" expanded="true" height="124" name="Validation" width="90" x="246" y="289">
-        <parameter key="create_complete_model" value="false"/>
-        <parameter key="split" value="relative"/>
-        <parameter key="split_ratio" value="0.8"/>
-        <parameter key="training_set_size" value="100"/>
-        <parameter key="test_set_size" value="-1"/>
-        <parameter key="sampling_type" value="linear sampling"/>
-        <parameter key="use_local_random_seed" value="false"/>
-        <parameter key="local_random_seed" value="1992"/>
-        <process expanded="true">
-          <operator activated="true" class="support_vector_machine_libsvm" compatibility="9.10.001" expanded="true" height="82" name="SVM" width="90" x="179" y="34">
-            <parameter key="svm_type" value="C-SVC"/>
-            <parameter key="kernel_type" value="rbf"/>
-            <parameter key="degree" value="3"/>
-            <parameter key="gamma" value="0.0"/>
-            <parameter key="coef0" value="0.0"/>
-            <parameter key="C" value="0.0"/>
-            <parameter key="nu" value="0.5"/>
-            <parameter key="cache_size" value="80"/>
-            <parameter key="epsilon" value="0.001"/>
-            <parameter key="p" value="0.1"/>
-            <list key="class_weights"/>
-            <parameter key="shrinking" value="true"/>
-            <parameter key="calculate_confidences" value="false"/>
-            <parameter key="confidence_for_multiclass" value="true"/>
-          </operator>
-          <connect from_port="training" to_op="SVM" to_port="training set"/>
-          <connect from_op="SVM" from_port="model" to_port="model"/>
-          <portSpacing port="source_training" spacing="0"/>
-          <portSpacing port="sink_model" spacing="0"/>
-          <portSpacing port="sink_through 1" spacing="0"/>
-        </process>
-        <process expanded="true">
-          <operator activated="true" class="apply_model" compatibility="9.10.001" expanded="true" height="82" name="Apply Model" width="90" x="112" y="34">
-            <list key="application_parameters"/>
-            <parameter key="create_view" value="false"/>
-          </operator>
-          <operator activated="true" class="performance_binominal_classification" compatibility="9.10.001" expanded="true" height="82" name="Performance" width="90" x="246" y="34">
-            <parameter key="manually_set_positive_class" value="false"/>
-            <parameter key="main_criterion" value="AUC"/>
-            <parameter key="accuracy" value="true"/>
-            <parameter key="classification_error" value="true"/>
-            <parameter key="kappa" value="false"/>
-            <parameter key="AUC (optimistic)" value="true"/>
-            <parameter key="AUC" value="true"/>
-            <parameter key="AUC (pessimistic)" value="true"/>
-            <parameter key="precision" value="false"/>
-            <parameter key="recall" value="false"/>
-            <parameter key="lift" value="false"/>
-            <parameter key="fallout" value="false"/>
-            <parameter key="f_measure" value="false"/>
-            <parameter key="false_positive" value="false"/>
-            <parameter key="false_negative" value="false"/>
-            <parameter key="true_positive" value="false"/>
-            <parameter key="true_negative" value="false"/>
-            <parameter key="sensitivity" value="false"/>
-            <parameter key="specificity" value="false"/>
-            <parameter key="youden" value="false"/>
-            <parameter key="positive_predictive_value" value="false"/>
-            <parameter key="negative_predictive_value" value="false"/>
-            <parameter key="psep" value="false"/>
-            <parameter key="skip_undefined_labels" value="true"/>
-            <parameter key="use_example_weights" value="true"/>
-          </operator>
-          <connect from_port="model" to_op="Apply Model" to_port="model"/>
-          <connect from_port="test set" to_op="Apply Model" to_port="unlabelled data"/>
-          <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
-          <connect from_op="Performance" from_port="performance" to_port="averagable 1"/>
-          <portSpacing port="source_model" spacing="0"/>
-          <portSpacing port="source_test set" spacing="0"/>
-          <portSpacing port="source_through 1" spacing="0"/>
-          <portSpacing port="sink_averagable 1" spacing="0"/>
-          <portSpacing port="sink_averagable 2" spacing="0"/>
-        </process>
       </operator>
       <operator activated="true" class="apply_model" compatibility="9.10.001" expanded="true" height="82" name="Apply Model (2)" width="90" x="514" y="34">
         <list key="application_parameters"/>
@@ -331,10 +363,10 @@
       <connect from_op="Read Test Data" from_port="output" to_op="Execute encoding (2)" to_port="input 1"/>
       <connect from_op="Read Train Data" from_port="output" to_op="Execute encoding" to_port="input 1"/>
       <connect from_op="Execute encoding" from_port="result 1" to_op="Set Role" to_port="example set input"/>
-      <connect from_op="Set Role" from_port="example set output" to_op="Validation" to_port="training"/>
+      <connect from_op="Set Role" from_port="example set output" to_op="Optimize Parameters (Grid)" to_port="input 1"/>
+      <connect from_op="Optimize Parameters (Grid)" from_port="performance" to_port="result 3"/>
+      <connect from_op="Optimize Parameters (Grid)" from_port="model" to_op="Apply Model (2)" to_port="model"/>
       <connect from_op="Execute encoding (2)" from_port="result 1" to_op="Apply Model (2)" to_port="unlabelled data"/>
-      <connect from_op="Validation" from_port="model" to_op="Apply Model (2)" to_port="model"/>
-      <connect from_op="Validation" from_port="averagable 1" to_port="result 3"/>
       <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Select Attributes" to_port="example set input"/>
       <connect from_op="Apply Model (2)" from_port="model" to_port="result 1"/>
       <connect from_op="Select Attributes" from_port="example set output" to_op="Rename" to_port="example set input"/>
