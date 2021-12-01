@@ -58,7 +58,7 @@
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
       <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="Random Forest (Bagging)" width="90" x="447" y="85">
-        <parameter key="process_location" value="//feup-ac/rm-processes/models/random_forest_bagging"/>
+        <parameter key="process_location" value="models/random_forest_bagging"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>
         <parameter key="propagate_metadata_recursively" value="true"/>
@@ -71,7 +71,7 @@
         <parameter key="create_view" value="false"/>
       </operator>
       <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Save" width="90" x="715" y="187">
-        <parameter key="process_location" value="//feup-ac/rm-processes/save_results"/>
+        <parameter key="process_location" value="save_results"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>
         <parameter key="propagate_metadata_recursively" value="true"/>

@@ -48,50 +48,45 @@
           <parameter key="10" value="account_district_id.true.integer.attribute"/>
           <parameter key="11" value="frequency.true.polynominal.attribute"/>
           <parameter key="12" value="account_date.true.date.attribute"/>
-          <parameter key="13" value="birthdate.true.date.attribute"/>
-          <parameter key="14" value="transaction_date_max.true.date.attribute"/>
-          <parameter key="15" value="transaction_date_min.true.date.attribute"/>
-          <parameter key="16" value="operation_count.true.integer.attribute"/>
-          <parameter key="17" value="amount_mean.true.real.attribute"/>
-          <parameter key="18" value="amount_min.true.real.attribute"/>
-          <parameter key="19" value="amount_max.true.real.attribute"/>
-          <parameter key="20" value="amount_std.true.real.attribute"/>
-          <parameter key="21" value="amount_last.true.real.attribute"/>
-          <parameter key="22" value="amount_abs_min.true.real.attribute"/>
-          <parameter key="23" value="amount_rangev.true.real.attribute"/>
-          <parameter key="24" value="balance_mean.true.real.attribute"/>
-          <parameter key="25" value="balance_min.true.real.attribute"/>
-          <parameter key="26" value="balance_max.true.real.attribute"/>
-          <parameter key="27" value="balance_std.true.real.attribute"/>
-          <parameter key="28" value="balance_last.true.real.attribute"/>
-          <parameter key="29" value="balance_abs_min.true.real.attribute"/>
-          <parameter key="30" value="balance_rangev.true.real.attribute"/>
-          <parameter key="31" value="type_count_in.true.integer.attribute"/>
-          <parameter key="32" value="type_count_out.true.integer.attribute"/>
-          <parameter key="33" value="type_mean_in.true.real.attribute"/>
-          <parameter key="34" value="type_mean_out.true.real.attribute"/>
-          <parameter key="35" value="disp_id_count.true.integer.attribute"/>
-          <parameter key="36" value="card_type_count_gold.true.integer.attribute"/>
-          <parameter key="37" value="card_type_count_classic.true.integer.attribute"/>
-          <parameter key="38" value="card_type_count_junior.true.integer.attribute"/>
-          <parameter key="39" value="before_loan_transaction_date.true.date.attribute"/>
-          <parameter key="40" value="before_loan_amount.true.real.attribute"/>
-          <parameter key="41" value="before_loan_balance.true.real.attribute"/>
-          <parameter key="42" value="age_at_loan.true.integer.attribute"/>
-          <parameter key="43" value="underage.true.polynominal.attribute"/>
-          <parameter key="44" value="owner_no\. of inhabitants.true.integer.attribute"/>
-          <parameter key="45" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
-          <parameter key="46" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
-          <parameter key="47" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
-          <parameter key="48" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
-          <parameter key="49" value="owner_no\. of cities.true.integer.attribute"/>
-          <parameter key="50" value="owner_ratio of urban inhabitants.true.real.attribute"/>
-          <parameter key="51" value="owner_average salary.true.integer.attribute"/>
-          <parameter key="52" value="owner_unemploymant rate 95.true.real.attribute"/>
-          <parameter key="53" value="owner_unemploymant rate 96.true.real.attribute"/>
-          <parameter key="54" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
-          <parameter key="55" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
-          <parameter key="56" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
+          <parameter key="13" value="transaction_date_max.true.date.attribute"/>
+          <parameter key="14" value="transaction_date_min.true.date.attribute"/>
+          <parameter key="15" value="operation_count.true.integer.attribute"/>
+          <parameter key="16" value="amount_mean.true.real.attribute"/>
+          <parameter key="17" value="amount_min.true.real.attribute"/>
+          <parameter key="18" value="amount_max.true.real.attribute"/>
+          <parameter key="19" value="amount_std.true.real.attribute"/>
+          <parameter key="20" value="amount_last.true.real.attribute"/>
+          <parameter key="21" value="amount_abs_min.true.real.attribute"/>
+          <parameter key="22" value="amount_rangev.true.real.attribute"/>
+          <parameter key="23" value="balance_mean.true.real.attribute"/>
+          <parameter key="24" value="balance_min.true.real.attribute"/>
+          <parameter key="25" value="balance_max.true.real.attribute"/>
+          <parameter key="26" value="balance_std.true.real.attribute"/>
+          <parameter key="27" value="balance_last.true.real.attribute"/>
+          <parameter key="28" value="balance_abs_min.true.real.attribute"/>
+          <parameter key="29" value="balance_rangev.true.real.attribute"/>
+          <parameter key="30" value="type_count_in.true.integer.attribute"/>
+          <parameter key="31" value="type_count_out.true.integer.attribute"/>
+          <parameter key="32" value="type_mean_in.true.real.attribute"/>
+          <parameter key="33" value="type_mean_out.true.real.attribute"/>
+          <parameter key="34" value="before_loan_transaction_date.true.date.attribute"/>
+          <parameter key="35" value="before_loan_amount.true.real.attribute"/>
+          <parameter key="36" value="before_loan_balance.true.real.attribute"/>
+          <parameter key="37" value="age_at_loan.true.integer.attribute"/>
+          <parameter key="38" value="underage.true.polynominal.attribute"/>
+          <parameter key="39" value="owner_no\. of inhabitants.true.integer.attribute"/>
+          <parameter key="40" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
+          <parameter key="41" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
+          <parameter key="42" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
+          <parameter key="43" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
+          <parameter key="44" value="owner_no\. of cities.true.integer.attribute"/>
+          <parameter key="45" value="owner_ratio of urban inhabitants.true.real.attribute"/>
+          <parameter key="46" value="owner_average salary.true.integer.attribute"/>
+          <parameter key="47" value="owner_unemploymant rate 95.true.real.attribute"/>
+          <parameter key="48" value="owner_unemploymant rate 96.true.real.attribute"/>
+          <parameter key="49" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
+          <parameter key="50" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
+          <parameter key="51" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
         </list>
         <parameter key="read_not_matching_values_as_missings" value="false"/>
       </operator>

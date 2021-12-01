@@ -14,10 +14,9 @@
     <process expanded="true">
       <operator activated="true" class="concurrency:optimize_parameters_grid" compatibility="9.10.001" expanded="true" height="124" name="Optimize Parameters (Grid)" width="90" x="380" y="34">
         <list key="parameters">
-          <parameter key="Random Forest.number_of_trees" value="74"/>
-          <parameter key="Random Forest.maximal_depth" value="90"/>
-          <parameter key="Random Forest.confidence" value="0.18064"/>
-          <parameter key="Random Forest.minimal_leaf_size" value="1"/>
+          <parameter key="Random Forest.number_of_trees" value="[20;100.0;5;quadratic]"/>
+          <parameter key="Random Forest.maximal_depth" value="[10;200;10;quadratic]"/>
+          <parameter key="Random Forest.confidence" value="[0.01;0.5;5;quadratic]"/>
         </list>
         <parameter key="error_handling" value="fail on error"/>
         <parameter key="log_performance" value="true"/>
@@ -26,8 +25,8 @@
         <parameter key="enable_parallel_execution" value="true"/>
         <process expanded="true">
           <operator activated="true" class="bagging" compatibility="9.10.001" expanded="true" height="82" name="Random Forest (Bagging)" width="90" x="313" y="34">
-            <parameter key="sample_ratio" value="0.9"/>
-            <parameter key="iterations" value="10"/>
+            <parameter key="sample_ratio" value="0.8"/>
+            <parameter key="iterations" value="50"/>
             <parameter key="average_confidences" value="true"/>
             <parameter key="use_local_random_seed" value="false"/>
             <parameter key="local_random_seed" value="1992"/>
@@ -75,7 +74,7 @@
             <parameter key="recall" value="false"/>
             <parameter key="lift" value="false"/>
             <parameter key="fallout" value="false"/>
-            <parameter key="f_measure" value="false"/>
+            <parameter key="f_measure" value="true"/>
             <parameter key="false_positive" value="false"/>
             <parameter key="false_negative" value="false"/>
             <parameter key="true_positive" value="false"/>

@@ -69,7 +69,7 @@
         <parameter key="local_random_seed" value="1992"/>
       </operator>
       <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="SVM Bagging" width="90" x="514" y="85">
-        <parameter key="process_location" value="//feup-ac/rm-processes/models/svm_bagging"/>
+        <parameter key="process_location" value="models/svm_bagging"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>
         <parameter key="propagate_metadata_recursively" value="true"/>
@@ -77,12 +77,12 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="apply_model" compatibility="9.10.001" expanded="true" height="82" name="Apply Model" width="90" x="648" y="187">
+      <operator activated="true" class="apply_model" compatibility="9.10.001" expanded="true" height="82" name="Apply Model" width="90" x="648" y="238">
         <list key="application_parameters"/>
         <parameter key="create_view" value="false"/>
       </operator>
       <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Save" width="90" x="782" y="187">
-        <parameter key="process_location" value="//feup-ac/rm-processes/save_results"/>
+        <parameter key="process_location" value="save_results"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>
         <parameter key="propagate_metadata_recursively" value="true"/>

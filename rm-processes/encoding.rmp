@@ -69,7 +69,7 @@
         <parameter key="except_block_type" value="single_value"/>
         <parameter key="invert_selection" value="false"/>
         <parameter key="include_special_attributes" value="false"/>
-        <parameter key="coding_type" value="dummy coding"/>
+        <parameter key="coding_type" value="unique integers"/>
         <parameter key="use_comparison_groups" value="false"/>
         <list key="comparison_groups"/>
         <parameter key="unexpected_value_handling" value="all 0 and warning"/>
