@@ -74,32 +74,24 @@
           <parameter key="36" value="card_type_count_gold.true.integer.attribute"/>
           <parameter key="37" value="card_type_count_classic.true.integer.attribute"/>
           <parameter key="38" value="card_type_count_junior.true.integer.attribute"/>
-          <parameter key="39" value="account_no\. of inhabitants.true.integer.attribute"/>
-          <parameter key="40" value="account_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
-          <parameter key="41" value="account_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
-          <parameter key="42" value="account_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
-          <parameter key="43" value="account_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
-          <parameter key="44" value="account_no\. of cities.true.integer.attribute"/>
-          <parameter key="45" value="account_ratio of urban inhabitants.true.real.attribute"/>
-          <parameter key="46" value="account_average salary.true.integer.attribute"/>
-          <parameter key="47" value="account_unemploymant rate 95.true.real.attribute"/>
-          <parameter key="48" value="account_unemploymant rate 96.true.real.attribute"/>
-          <parameter key="49" value="account_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
-          <parameter key="50" value="account_no\. of commited crimes 95.true.integer.attribute"/>
-          <parameter key="51" value="account_no\. of commited crimes 96.true.integer.attribute"/>
-          <parameter key="52" value="owner_no\. of inhabitants.true.integer.attribute"/>
-          <parameter key="53" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
-          <parameter key="54" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
-          <parameter key="55" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
-          <parameter key="56" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
-          <parameter key="57" value="owner_no\. of cities.true.integer.attribute"/>
-          <parameter key="58" value="owner_ratio of urban inhabitants.true.real.attribute"/>
-          <parameter key="59" value="owner_average salary.true.integer.attribute"/>
-          <parameter key="60" value="owner_unemploymant rate 95.true.real.attribute"/>
-          <parameter key="61" value="owner_unemploymant rate 96.true.real.attribute"/>
-          <parameter key="62" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
-          <parameter key="63" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
-          <parameter key="64" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
+          <parameter key="39" value="before_loan_transaction_date.true.date.attribute"/>
+          <parameter key="40" value="before_loan_amount.true.real.attribute"/>
+          <parameter key="41" value="before_loan_balance.true.real.attribute"/>
+          <parameter key="42" value="age_at_loan.true.integer.attribute"/>
+          <parameter key="43" value="underage.true.polynominal.attribute"/>
+          <parameter key="44" value="owner_no\. of inhabitants.true.integer.attribute"/>
+          <parameter key="45" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
+          <parameter key="46" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
+          <parameter key="47" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
+          <parameter key="48" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
+          <parameter key="49" value="owner_no\. of cities.true.integer.attribute"/>
+          <parameter key="50" value="owner_ratio of urban inhabitants.true.real.attribute"/>
+          <parameter key="51" value="owner_average salary.true.integer.attribute"/>
+          <parameter key="52" value="owner_unemploymant rate 95.true.real.attribute"/>
+          <parameter key="53" value="owner_unemploymant rate 96.true.real.attribute"/>
+          <parameter key="54" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
+          <parameter key="55" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
+          <parameter key="56" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
         </list>
         <parameter key="read_not_matching_values_as_missings" value="false"/>
       </operator>
@@ -165,32 +157,24 @@
           <parameter key="36" value="card_type_count_gold.true.integer.attribute"/>
           <parameter key="37" value="card_type_count_classic.true.integer.attribute"/>
           <parameter key="38" value="card_type_count_junior.true.integer.attribute"/>
-          <parameter key="39" value="account_no\. of inhabitants.true.integer.attribute"/>
-          <parameter key="40" value="account_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
-          <parameter key="41" value="account_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
-          <parameter key="42" value="account_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
-          <parameter key="43" value="account_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
-          <parameter key="44" value="account_no\. of cities.true.integer.attribute"/>
-          <parameter key="45" value="account_ratio of urban inhabitants.true.real.attribute"/>
-          <parameter key="46" value="account_average salary.true.integer.attribute"/>
-          <parameter key="47" value="account_unemploymant rate 95.true.real.attribute"/>
-          <parameter key="48" value="account_unemploymant rate 96.true.real.attribute"/>
-          <parameter key="49" value="account_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
-          <parameter key="50" value="account_no\. of commited crimes 95.true.integer.attribute"/>
-          <parameter key="51" value="account_no\. of commited crimes 96.true.integer.attribute"/>
-          <parameter key="52" value="owner_no\. of inhabitants.true.integer.attribute"/>
-          <parameter key="53" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
-          <parameter key="54" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
-          <parameter key="55" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
-          <parameter key="56" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
-          <parameter key="57" value="owner_no\. of cities.true.integer.attribute"/>
-          <parameter key="58" value="owner_ratio of urban inhabitants.true.real.attribute"/>
-          <parameter key="59" value="owner_average salary.true.integer.attribute"/>
-          <parameter key="60" value="owner_unemploymant rate 95.true.real.attribute"/>
-          <parameter key="61" value="owner_unemploymant rate 96.true.real.attribute"/>
-          <parameter key="62" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
-          <parameter key="63" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
-          <parameter key="64" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
+          <parameter key="39" value="before_loan_transaction_date.true.date.attribute"/>
+          <parameter key="40" value="before_loan_amount.true.real.attribute"/>
+          <parameter key="41" value="before_loan_balance.true.real.attribute"/>
+          <parameter key="42" value="age_at_loan.true.integer.attribute"/>
+          <parameter key="43" value="underage.true.polynominal.attribute"/>
+          <parameter key="44" value="owner_no\. of inhabitants.true.integer.attribute"/>
+          <parameter key="45" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
+          <parameter key="46" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
+          <parameter key="47" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
+          <parameter key="48" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
+          <parameter key="49" value="owner_no\. of cities.true.integer.attribute"/>
+          <parameter key="50" value="owner_ratio of urban inhabitants.true.real.attribute"/>
+          <parameter key="51" value="owner_average salary.true.integer.attribute"/>
+          <parameter key="52" value="owner_unemploymant rate 95.true.real.attribute"/>
+          <parameter key="53" value="owner_unemploymant rate 96.true.real.attribute"/>
+          <parameter key="54" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
+          <parameter key="55" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
+          <parameter key="56" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
         </list>
         <parameter key="read_not_matching_values_as_missings" value="false"/>
       </operator>
@@ -208,7 +192,7 @@
         <parameter key="target_role" value="label"/>
         <list key="set_additional_roles"/>
       </operator>
-      <operator activated="true" class="concurrency:optimize_parameters_grid" compatibility="9.10.001" expanded="true" height="124" name="Optimize Parameters (Grid)" width="90" x="246" y="340">
+      <operator activated="true" class="concurrency:optimize_parameters_grid" compatibility="9.10.001" expanded="true" height="124" name="Optimize Parameters (Grid)" width="90" x="313" y="289">
         <list key="parameters">
           <parameter key="SVM.L_pos" value="[0.0;5;30;linear]"/>
           <parameter key="SVM.L_neg" value="[0.0;5;30;linear]"/>
@@ -268,7 +252,8 @@
                 <parameter key="create_view" value="false"/>
               </operator>
               <operator activated="true" class="performance_binominal_classification" compatibility="9.10.001" expanded="true" height="82" name="Performance" width="90" x="246" y="34">
-                <parameter key="manually_set_positive_class" value="false"/>
+                <parameter key="manually_set_positive_class" value="true"/>
+                <parameter key="positive_class" value="no"/>
                 <parameter key="main_criterion" value="AUC"/>
                 <parameter key="accuracy" value="true"/>
                 <parameter key="classification_error" value="true"/>

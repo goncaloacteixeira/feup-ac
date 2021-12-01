@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.10.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.10.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute read_train" width="90" x="112" y="34">
+        <parameter key="process_location" value="read_train"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute encoding" width="90" x="246" y="34">
+        <parameter key="process_location" value="encoding"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="compare_rocs" compatibility="9.10.001" expanded="true" height="82" name="Compare ROCs" width="90" x="447" y="34">
+        <parameter key="number_of_folds" value="10"/>
+        <parameter key="split_ratio" value="0.7"/>
+        <parameter key="sampling_type" value="stratified sampling"/>
+        <parameter key="use_local_random_seed" value="false"/>
+        <parameter key="local_random_seed" value="1992"/>
+        <parameter key="use_example_weights" value="true"/>
+        <parameter key="roc_bias" value="neutral"/>
+        <process expanded="true">
+          <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="Execute split_train" width="90" x="179" y="34">
+            <parameter key="process_location" value="split_train"/>
+            <parameter key="use_input" value="true"/>
+            <parameter key="store_output" value="false"/>
+            <parameter key="propagate_metadata_recursively" value="true"/>
+            <parameter key="cache_process" value="true"/>
+            <list key="macros"/>
+            <parameter key="fail_for_unknown_macros" value="true"/>
+          </operator>
+          <operator activated="true" class="operator_toolbox:parallel_branches" compatibility="8.2.000" expanded="true" height="208" name="Subprocess (Parallel)" width="90" x="447" y="34">
+            <parameter key="enable_parallel_execution" value="true"/>
+            <process expanded="true">
+              <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="Execute gradient_boosted_trees" width="90" x="45" y="34">
+                <parameter key="process_location" value="models/gradient_boosted_trees"/>
+                <parameter key="use_input" value="true"/>
+                <parameter key="store_output" value="false"/>
+                <parameter key="propagate_metadata_recursively" value="true"/>
+                <parameter key="cache_process" value="true"/>
+                <list key="macros"/>
+                <parameter key="fail_for_unknown_macros" value="true"/>
+              </operator>
+              <connect from_port="input 1" to_op="Execute gradient_boosted_trees" to_port="input 1"/>
+              <connect from_port="input 2" to_op="Execute gradient_boosted_trees" to_port="input 2"/>
+              <connect from_op="Execute gradient_boosted_trees" from_port="result 2" to_port="output 1"/>
+              <portSpacing port="source_input 1" spacing="0"/>
+              <portSpacing port="source_input 2" spacing="0"/>
+              <portSpacing port="source_input 3" spacing="0"/>
+              <portSpacing port="sink_output 1" spacing="0"/>
+              <portSpacing port="sink_output 2" spacing="0"/>
+              <portSpacing port="sink_output 3" spacing="0"/>
+              <portSpacing port="sink_output 4" spacing="0"/>
+              <portSpacing port="sink_output 5" spacing="0"/>
+              <portSpacing port="sink_output 6" spacing="0"/>
+              <portSpacing port="sink_output 7" spacing="0"/>
+              <portSpacing port="sink_output 8" spacing="0"/>
+            </process>
+            <process expanded="true">
+              <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="103" name="Execute random_forest (2)" width="90" x="45" y="34">
+                <parameter key="process_location" value="models/random_forest"/>
+                <parameter key="use_input" value="true"/>
+                <parameter key="store_output" value="false"/>
+                <parameter key="propagate_metadata_recursively" value="true"/>
+                <parameter key="cache_process" value="true"/>
+                <list key="macros"/>
+                <parameter key="fail_for_unknown_macros" value="true"/>
+              </operator>
+              <connect from_port="input 1" to_op="Execute random_forest (2)" to_port="input 1"/>
+              <connect from_port="input 2" to_op="Execute random_forest (2)" to_port="input 2"/>
+              <connect from_op="Execute random_forest (2)" from_port="result 2" to_port="output 2"/>
+              <portSpacing port="source_input 1" spacing="0"/>
+              <portSpacing port="source_input 2" spacing="0"/>
+              <portSpacing port="source_input 3" spacing="0"/>
+              <portSpacing port="sink_output 1" spacing="0"/>
+              <portSpacing port="sink_output 2" spacing="0"/>
+              <portSpacing port="sink_output 3" spacing="0"/>
+              <portSpacing port="sink_output 4" spacing="0"/>
+              <portSpacing port="sink_output 5" spacing="0"/>
+              <portSpacing port="sink_output 6" spacing="0"/>
+              <portSpacing port="sink_output 7" spacing="0"/>
+              <portSpacing port="sink_output 8" spacing="0"/>
+            </process>
+            <process expanded="true">
+              <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="Execute svm (2)" width="90" x="45" y="34">
+                <parameter key="process_location" value="models/svm"/>
+                <parameter key="use_input" value="true"/>
+                <parameter key="store_output" value="false"/>
+                <parameter key="propagate_metadata_recursively" value="true"/>
+                <parameter key="cache_process" value="true"/>
+                <list key="macros"/>
+                <parameter key="fail_for_unknown_macros" value="true"/>
+              </operator>
+              <connect from_port="input 1" to_op="Execute svm (2)" to_port="input 1"/>
+              <connect from_port="input 2" to_op="Execute svm (2)" to_port="input 2"/>
+              <connect from_op="Execute svm (2)" from_port="result 2" to_port="output 3"/>
+              <portSpacing port="source_input 1" spacing="0"/>
+              <portSpacing port="source_input 2" spacing="0"/>
+              <portSpacing port="source_input 3" spacing="0"/>
+              <portSpacing port="sink_output 1" spacing="0"/>
+              <portSpacing port="sink_output 2" spacing="0"/>
+              <portSpacing port="sink_output 3" spacing="0"/>
+              <portSpacing port="sink_output 4" spacing="0"/>
+              <portSpacing port="sink_output 5" spacing="0"/>
+              <portSpacing port="sink_output 6" spacing="0"/>
+              <portSpacing port="sink_output 7" spacing="0"/>
+              <portSpacing port="sink_output 8" spacing="0"/>
+            </process>
+            <process expanded="true">
+              <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="Execute deep_learning (2)" width="90" x="45" y="34">
+                <parameter key="process_location" value="models/deep_learning"/>
+                <parameter key="use_input" value="true"/>
+                <parameter key="store_output" value="false"/>
+                <parameter key="propagate_metadata_recursively" value="true"/>
+                <parameter key="cache_process" value="true"/>
+                <list key="macros"/>
+                <parameter key="fail_for_unknown_macros" value="true"/>
+              </operator>
+              <connect from_port="input 1" to_op="Execute deep_learning (2)" to_port="input 1"/>
+              <connect from_port="input 2" to_op="Execute deep_learning (2)" to_port="input 2"/>
+              <connect from_op="Execute deep_learning (2)" from_port="result 2" to_port="output 4"/>
+              <portSpacing port="source_input 1" spacing="0"/>
+              <portSpacing port="source_input 2" spacing="0"/>
+              <portSpacing port="source_input 3" spacing="0"/>
+              <portSpacing port="sink_output 1" spacing="0"/>
+              <portSpacing port="sink_output 2" spacing="0"/>
+              <portSpacing port="sink_output 3" spacing="0"/>
+              <portSpacing port="sink_output 4" spacing="0"/>
+              <portSpacing port="sink_output 5" spacing="0"/>
+              <portSpacing port="sink_output 6" spacing="0"/>
+              <portSpacing port="sink_output 7" spacing="0"/>
+              <portSpacing port="sink_output 8" spacing="0"/>
+            </process>
+            <process expanded="true">
+              <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="Execute gradient_boosted_trees_bagging (2)" width="90" x="45" y="34">
+                <parameter key="process_location" value="models/gradient_boosted_trees_bagging"/>
+                <parameter key="use_input" value="true"/>
+                <parameter key="store_output" value="false"/>
+                <parameter key="propagate_metadata_recursively" value="true"/>
+                <parameter key="cache_process" value="true"/>
+                <list key="macros"/>
+                <parameter key="fail_for_unknown_macros" value="true"/>
+              </operator>
+              <connect from_port="input 1" to_op="Execute gradient_boosted_trees_bagging (2)" to_port="input 1"/>
+              <connect from_port="input 2" to_op="Execute gradient_boosted_trees_bagging (2)" to_port="input 2"/>
+              <connect from_op="Execute gradient_boosted_trees_bagging (2)" from_port="result 2" to_port="output 5"/>
+              <portSpacing port="source_input 1" spacing="0"/>
+              <portSpacing port="source_input 2" spacing="0"/>
+              <portSpacing port="source_input 3" spacing="0"/>
+              <portSpacing port="sink_output 1" spacing="0"/>
+              <portSpacing port="sink_output 2" spacing="0"/>
+              <portSpacing port="sink_output 3" spacing="0"/>
+              <portSpacing port="sink_output 4" spacing="0"/>
+              <portSpacing port="sink_output 5" spacing="0"/>
+              <portSpacing port="sink_output 6" spacing="0"/>
+              <portSpacing port="sink_output 7" spacing="0"/>
+              <portSpacing port="sink_output 8" spacing="0"/>
+            </process>
+            <process expanded="true">
+              <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="Execute random_forest_bagging (2)" width="90" x="45" y="34">
+                <parameter key="process_location" value="models/random_forest_bagging"/>
+                <parameter key="use_input" value="true"/>
+                <parameter key="store_output" value="false"/>
+                <parameter key="propagate_metadata_recursively" value="true"/>
+                <parameter key="cache_process" value="true"/>
+                <list key="macros"/>
+                <parameter key="fail_for_unknown_macros" value="true"/>
+              </operator>
+              <connect from_port="input 1" to_op="Execute random_forest_bagging (2)" to_port="input 1"/>
+              <connect from_port="input 2" to_op="Execute random_forest_bagging (2)" to_port="input 2"/>
+              <connect from_op="Execute random_forest_bagging (2)" from_port="result 2" to_port="output 6"/>
+              <portSpacing port="source_input 1" spacing="0"/>
+              <portSpacing port="source_input 2" spacing="0"/>
+              <portSpacing port="source_input 3" spacing="0"/>
+              <portSpacing port="sink_output 1" spacing="0"/>
+              <portSpacing port="sink_output 2" spacing="0"/>
+              <portSpacing port="sink_output 3" spacing="0"/>
+              <portSpacing port="sink_output 4" spacing="0"/>
+              <portSpacing port="sink_output 5" spacing="0"/>
+              <portSpacing port="sink_output 6" spacing="0"/>
+              <portSpacing port="sink_output 7" spacing="0"/>
+              <portSpacing port="sink_output 8" spacing="0"/>
+            </process>
+            <process expanded="true">
+              <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="Execute svm_bagging (2)" width="90" x="45" y="34">
+                <parameter key="process_location" value="models/svm_bagging"/>
+                <parameter key="use_input" value="true"/>
+                <parameter key="store_output" value="false"/>
+                <parameter key="propagate_metadata_recursively" value="true"/>
+                <parameter key="cache_process" value="true"/>
+                <list key="macros"/>
+                <parameter key="fail_for_unknown_macros" value="true"/>
+              </operator>
+              <connect from_port="input 1" to_op="Execute svm_bagging (2)" to_port="input 1"/>
+              <connect from_port="input 2" to_op="Execute svm_bagging (2)" to_port="input 2"/>
+              <connect from_op="Execute svm_bagging (2)" from_port="result 2" to_port="output 7"/>
+              <portSpacing port="source_input 1" spacing="0"/>
+              <portSpacing port="source_input 2" spacing="0"/>
+              <portSpacing port="source_input 3" spacing="0"/>
+              <portSpacing port="sink_output 1" spacing="0"/>
+              <portSpacing port="sink_output 2" spacing="0"/>
+              <portSpacing port="sink_output 3" spacing="0"/>
+              <portSpacing port="sink_output 4" spacing="0"/>
+              <portSpacing port="sink_output 5" spacing="0"/>
+              <portSpacing port="sink_output 6" spacing="0"/>
+              <portSpacing port="sink_output 7" spacing="0"/>
+              <portSpacing port="sink_output 8" spacing="0"/>
+            </process>
+          </operator>
+          <connect from_port="train 1" to_op="Execute split_train" to_port="input 1"/>
+          <connect from_op="Execute split_train" from_port="result 1" to_op="Subprocess (Parallel)" to_port="input 1"/>
+          <connect from_op="Execute split_train" from_port="result 2" to_op="Subprocess (Parallel)" to_port="input 2"/>
+          <connect from_op="Subprocess (Parallel)" from_port="output 1" to_port="model 1"/>
+          <connect from_op="Subprocess (Parallel)" from_port="output 2" to_port="model 2"/>
+          <connect from_op="Subprocess (Parallel)" from_port="output 3" to_port="model 3"/>
+          <connect from_op="Subprocess (Parallel)" from_port="output 4" to_port="model 4"/>
+          <connect from_op="Subprocess (Parallel)" from_port="output 5" to_port="model 5"/>
+          <connect from_op="Subprocess (Parallel)" from_port="output 6" to_port="model 6"/>
+          <connect from_op="Subprocess (Parallel)" from_port="output 7" to_port="model 7"/>
+          <portSpacing port="source_train 1" spacing="0"/>
+          <portSpacing port="source_train 2" spacing="0"/>
+          <portSpacing port="sink_model 1" spacing="0"/>
+          <portSpacing port="sink_model 2" spacing="0"/>
+          <portSpacing port="sink_model 3" spacing="0"/>
+          <portSpacing port="sink_model 4" spacing="0"/>
+          <portSpacing port="sink_model 5" spacing="0"/>
+          <portSpacing port="sink_model 6" spacing="0"/>
+          <portSpacing port="sink_model 7" spacing="0"/>
+          <portSpacing port="sink_model 8" spacing="0"/>
+        </process>
+      </operator>
+      <connect from_op="Execute read_train" from_port="result 1" to_op="Execute encoding" to_port="input 1"/>
+      <connect from_op="Execute encoding" from_port="result 1" to_op="Compare ROCs" to_port="example set"/>
+      <connect from_op="Compare ROCs" from_port="rocComparison" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>

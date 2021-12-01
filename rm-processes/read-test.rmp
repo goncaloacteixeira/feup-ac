@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.10.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.10.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_csv" compatibility="9.10.001" expanded="true" height="68" name="Read Test Data" width="90" x="313" y="136">
+        <parameter key="csv_file" value="C:\Users\gonca\OneDrive\Desktop\feup-ac\test.csv"/>
+        <parameter key="column_separators" value=","/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="true"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value="yyyy-MM-dd"/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="windows-1252"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information">
+          <parameter key="0" value="loan_id.true.integer.attribute"/>
+          <parameter key="1" value="account_id.true.integer.attribute"/>
+          <parameter key="2" value="status.true.polynominal.attribute"/>
+          <parameter key="3" value="loan_date.true.date.attribute"/>
+          <parameter key="4" value="loan_amount.true.integer.attribute"/>
+          <parameter key="5" value="duration.true.integer.attribute"/>
+          <parameter key="6" value="payments.true.integer.attribute"/>
+          <parameter key="7" value="owner_district_id.true.integer.attribute"/>
+          <parameter key="8" value="client_age.true.integer.attribute"/>
+          <parameter key="9" value="client_gender.true.polynominal.attribute"/>
+          <parameter key="10" value="account_district_id.true.integer.attribute"/>
+          <parameter key="11" value="frequency.true.polynominal.attribute"/>
+          <parameter key="12" value="account_date.true.date.attribute"/>
+          <parameter key="13" value="birthdate.true.date.attribute"/>
+          <parameter key="14" value="transaction_date_max.true.date.attribute"/>
+          <parameter key="15" value="transaction_date_min.true.date.attribute"/>
+          <parameter key="16" value="operation_count.true.integer.attribute"/>
+          <parameter key="17" value="amount_mean.true.real.attribute"/>
+          <parameter key="18" value="amount_min.true.real.attribute"/>
+          <parameter key="19" value="amount_max.true.real.attribute"/>
+          <parameter key="20" value="amount_std.true.real.attribute"/>
+          <parameter key="21" value="amount_last.true.real.attribute"/>
+          <parameter key="22" value="amount_abs_min.true.real.attribute"/>
+          <parameter key="23" value="amount_rangev.true.real.attribute"/>
+          <parameter key="24" value="balance_mean.true.real.attribute"/>
+          <parameter key="25" value="balance_min.true.real.attribute"/>
+          <parameter key="26" value="balance_max.true.real.attribute"/>
+          <parameter key="27" value="balance_std.true.real.attribute"/>
+          <parameter key="28" value="balance_last.true.real.attribute"/>
+          <parameter key="29" value="balance_abs_min.true.real.attribute"/>
+          <parameter key="30" value="balance_rangev.true.real.attribute"/>
+          <parameter key="31" value="type_count_in.true.integer.attribute"/>
+          <parameter key="32" value="type_count_out.true.integer.attribute"/>
+          <parameter key="33" value="type_mean_in.true.real.attribute"/>
+          <parameter key="34" value="type_mean_out.true.real.attribute"/>
+          <parameter key="35" value="disp_id_count.true.integer.attribute"/>
+          <parameter key="36" value="card_type_count_gold.true.integer.attribute"/>
+          <parameter key="37" value="card_type_count_classic.true.integer.attribute"/>
+          <parameter key="38" value="card_type_count_junior.true.integer.attribute"/>
+          <parameter key="39" value="before_loan_transaction_date.true.date.attribute"/>
+          <parameter key="40" value="before_loan_amount.true.real.attribute"/>
+          <parameter key="41" value="before_loan_balance.true.real.attribute"/>
+          <parameter key="42" value="age_at_loan.true.integer.attribute"/>
+          <parameter key="43" value="underage.true.polynominal.attribute"/>
+          <parameter key="44" value="owner_no\. of inhabitants.true.integer.attribute"/>
+          <parameter key="45" value="owner_no\. of municipalities with inhabitants &lt; 499.true.integer.attribute"/>
+          <parameter key="46" value="owner_no\. of municipalities with inhabitants 500-1999.true.integer.attribute"/>
+          <parameter key="47" value="owner_no\. of municipalities with inhabitants 2000-9999.true.integer.attribute"/>
+          <parameter key="48" value="owner_no\. of municipalities with inhabitants &gt;10000.true.integer.attribute"/>
+          <parameter key="49" value="owner_no\. of cities.true.integer.attribute"/>
+          <parameter key="50" value="owner_ratio of urban inhabitants.true.real.attribute"/>
+          <parameter key="51" value="owner_average salary.true.integer.attribute"/>
+          <parameter key="52" value="owner_unemploymant rate 95.true.real.attribute"/>
+          <parameter key="53" value="owner_unemploymant rate 96.true.real.attribute"/>
+          <parameter key="54" value="owner_no\. of enterpreneurs per 1000 inhabitants.true.integer.attribute"/>
+          <parameter key="55" value="owner_no\. of commited crimes 95.true.integer.attribute"/>
+          <parameter key="56" value="owner_no\. of commited crimes 96.true.integer.attribute"/>
+        </list>
+        <parameter key="read_not_matching_values_as_missings" value="false"/>
+      </operator>
+      <connect from_op="Read Test Data" from_port="output" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+    </process>
+  </operator>
+</process>

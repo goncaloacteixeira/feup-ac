@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.10.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.10.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="Read Train Split" width="90" x="45" y="136">
+        <parameter key="process_location" value="read_train_split"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Read Test" width="90" x="45" y="289">
+        <parameter key="process_location" value="read-test"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Encode Test" width="90" x="246" y="289">
+        <parameter key="process_location" value="encoding"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Encode Train" width="90" x="246" y="85">
+        <parameter key="process_location" value="encoding"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Encode Train Test" width="90" x="246" y="187">
+        <parameter key="process_location" value="encoding"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="103" name="Random Forest" width="90" x="514" y="136">
+        <parameter key="process_location" value="models/random_forest"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.10.001" expanded="true" height="82" name="Apply Model" width="90" x="648" y="289">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Save" width="90" x="849" y="238">
+        <parameter key="process_location" value="//feup-ac/rm-processes/save_results"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <connect from_op="Read Train Split" from_port="result 1" to_op="Encode Train" to_port="input 1"/>
+      <connect from_op="Read Train Split" from_port="result 2" to_op="Encode Train Test" to_port="input 1"/>
+      <connect from_op="Read Test" from_port="result 1" to_op="Encode Test" to_port="input 1"/>
+      <connect from_op="Encode Test" from_port="result 1" to_op="Apply Model" to_port="unlabelled data"/>
+      <connect from_op="Encode Train" from_port="result 1" to_op="Random Forest" to_port="input 1"/>
+      <connect from_op="Encode Train Test" from_port="result 1" to_op="Random Forest" to_port="input 2"/>
+      <connect from_op="Random Forest" from_port="result 1" to_port="result 1"/>
+      <connect from_op="Random Forest" from_port="result 2" to_op="Apply Model" to_port="model"/>
+      <connect from_op="Apply Model" from_port="labelled data" to_op="Save" to_port="input 1"/>
+      <connect from_op="Apply Model" from_port="model" to_port="result 3"/>
+      <connect from_op="Save" from_port="result 1" to_port="result 2"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+    </process>
+  </operator>
+</process>
