@@ -131,3 +131,6 @@ dmypy.json
 .idea/**
 *.csv
 !data/
+
+.DS_Store
+*.rmhdf5table
